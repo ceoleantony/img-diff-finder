@@ -3,507 +3,805 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Mystery Gallery</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<style>
+    <title>Mystery Gallery</title>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-body {
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    color: white;
+    <style>
 
-    background:
-        radial-gradient(circle at 50% 20%, #123b5c 0%, #071827 35%, #02070d 80%);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    overflow-x: hidden;
-}
 
-/* =========================
-   START SCREEN
-========================= */
+        body {
 
-#startScreen {
+            font-family: Arial, sans-serif;
 
-    min-height: 100vh;
+            min-height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            color: white;
 
-    padding: 25px;
-}
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    #123b5c 0%,
+                    #071827 35%,
+                    #02070d 80%
+                );
 
-.start-card {
+            overflow-x: hidden;
+        }
 
-    width: 100%;
-    max-width: 650px;
 
-    padding: 55px 45px;
+        /* =========================
+           START SCREEN
+        ========================= */
 
-    text-align: center;
+        #startScreen {
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(12, 31, 47, 0.96),
-            rgba(4, 13, 23, 0.96)
-        );
+            min-height: 100vh;
 
-    border: 1px solid rgba(70, 207, 255, 0.35);
+            display: flex;
 
-    border-radius: 18px;
+            justify-content: center;
 
-    box-shadow:
-        0 0 60px rgba(0, 174, 255, 0.12),
-        inset 0 0 40px rgba(0, 174, 255, 0.03);
-}
+            align-items: center;
 
-.small-title {
+            padding: 25px;
+        }
 
-    color: #5bdcff;
 
-    font-size: 14px;
+        .start-card {
 
-    font-weight: bold;
+            width: 100%;
 
-    letter-spacing: 4px;
+            max-width: 650px;
 
-    margin-bottom: 15px;
-}
+            padding: 55px 45px;
 
-.main-title {
+            text-align: center;
 
-    font-size: clamp(38px, 7vw, 68px);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(12, 31, 47, 0.96),
+                    rgba(4, 13, 23, 0.96)
+                );
 
-    font-weight: 800;
+            border: 1px solid
+                rgba(70, 207, 255, 0.35);
 
-    letter-spacing: 2px;
+            border-radius: 18px;
 
-    color: #f3fbff;
+            box-shadow:
+                0 0 60px
+                rgba(0, 174, 255, 0.12),
 
-    text-shadow:
-        0 0 15px rgba(102, 220, 255, 0.3);
+                inset 0 0 40px
+                rgba(0, 174, 255, 0.03);
+        }
 
-    margin-bottom: 12px;
-}
 
-.subtitle {
+        .small-title {
 
-    color: #9eb5c5;
+            color: #5bdcff;
 
-    font-size: 16px;
+            font-size: 14px;
 
-    margin-bottom: 40px;
-}
+            font-weight: bold;
 
-.username-label {
+            letter-spacing: 4px;
 
-    display: block;
+            margin-bottom: 15px;
+        }
 
-    text-align: left;
 
-    color: #dceaf2;
+        .main-title {
 
-    font-weight: bold;
+            font-size:
+                clamp(38px, 7vw, 68px);
 
-    font-size: 14px;
+            font-weight: 800;
 
-    margin-bottom: 9px;
-}
+            letter-spacing: 2px;
 
-#username {
+            color: #f3fbff;
 
-    width: 100%;
+            text-shadow:
+                0 0 15px
+                rgba(102, 220, 255, 0.3);
 
-    padding: 17px;
+            margin-bottom: 12px;
+        }
 
-    border-radius: 10px;
 
-    border: 1px solid rgba(74, 205, 255, 0.5);
+        .subtitle {
 
-    outline: none;
+            color: #9eb5c5;
 
-    background: rgba(5, 19, 31, 0.8);
+            font-size: 16px;
 
-    color: white;
+            margin-bottom: 40px;
+        }
 
-    font-size: 16px;
-}
 
-#username::placeholder {
-    color: #647b89;
-}
+        .username-label {
 
-.start-button {
+            display: block;
 
-    width: 100%;
+            text-align: left;
 
-    margin-top: 25px;
+            color: #dceaf2;
 
-    padding: 17px;
+            font-weight: bold;
 
-    border: none;
+            font-size: 14px;
 
-    border-radius: 10px;
+            margin-bottom: 9px;
+        }
 
-    background:
-        linear-gradient(
-            135deg,
-            #54dfff,
-            #38aeca
-        );
 
-    color: #06202d;
+        #username {
 
-    font-size: 16px;
+            width: 100%;
 
-    font-weight: 800;
+            padding: 17px;
 
-    letter-spacing: 1px;
+            border-radius: 10px;
 
-    cursor: pointer;
+            border:
+                1px solid
+                rgba(74, 205, 255, 0.5);
 
-    box-shadow:
-        0 0 25px rgba(65, 213, 255, 0.25);
+            outline: none;
 
-    transition: 0.25s;
-}
+            background:
+                rgba(5, 19, 31, 0.8);
 
-.start-button:hover {
+            color: white;
 
-    transform: translateY(-2px);
+            font-size: 16px;
+        }
 
-    box-shadow:
-        0 0 35px rgba(65, 213, 255, 0.45);
-}
 
+        #username::placeholder {
 
-/* =========================
-   GAME
-========================= */
+            color: #647b89;
+        }
 
-#gameScreen {
 
-    display: none;
+        .start-button {
 
-    width: 100%;
+            width: 100%;
 
-    max-width: 1450px;
+            margin-top: 25px;
 
-    margin: auto;
+            padding: 17px;
 
-    padding: 35px 25px 60px;
-}
+            border: none;
 
-.game-header {
+            border-radius: 10px;
 
-    text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #54dfff,
+                    #38aeca
+                );
 
-    margin-bottom: 25px;
-}
+            color: #06202d;
 
-.game-title {
+            font-size: 16px;
 
-    font-size: clamp(32px, 5vw, 50px);
+            font-weight: 800;
 
-    letter-spacing: 2px;
+            letter-spacing: 1px;
 
-    margin-bottom: 8px;
-}
+            cursor: pointer;
 
-.game-description {
+            box-shadow:
+                0 0 25px
+                rgba(65, 213, 255, 0.25);
 
-    color: #91a9b9;
+            transition: 0.25s;
+        }
 
-    font-size: 14px;
-}
 
+        .start-button:hover {
 
-/* =========================
-   INFO
-========================= */
+            transform:
+                translateY(-2px);
 
-.info-bar {
+            box-shadow:
+                0 0 35px
+                rgba(65, 213, 255, 0.45);
+        }
 
-    display: flex;
 
-    justify-content: center;
+        .home-leaderboard-button {
 
-    align-items: center;
+            margin-top: 12px;
 
-    gap: 35px;
+            width: 100%;
 
-    flex-wrap: wrap;
+            padding: 15px;
 
-    margin-bottom: 28px;
-}
+            border-radius: 10px;
 
-.info-item {
+            border:
+                1px solid
+                rgba(77, 213, 255, 0.4);
 
-    color: #c8d8e1;
+            background:
+                rgba(36, 150, 191, 0.15);
 
-    font-size: 15px;
-}
+            color: #65dcff;
 
-.info-item strong {
+            font-weight: bold;
 
-    color: white;
-}
+            cursor: pointer;
+        }
 
-.timer {
 
-    color: #62ddff;
+        /* =========================
+           GAME
+        ========================= */
 
-    text-shadow:
-        0 0 10px rgba(75, 214, 255, 0.5);
-}
+        #gameScreen {
 
+            display: none;
 
-/* =========================
-   IMAGES
-========================= */
+            width: 100%;
 
-.images-wrapper {
+            max-width: 1450px;
 
-    display: grid;
+            margin: auto;
 
-    grid-template-columns: 1fr 1fr;
+            padding:
+                35px 25px 60px;
+        }
 
-    gap: 20px;
-}
 
-.image-panel {
+        .game-header {
 
-    background:
-        rgba(5, 18, 29, 0.9);
+            text-align: center;
 
-    border: 1px solid rgba(69, 203, 255, 0.22);
+            margin-bottom: 25px;
+        }
 
-    border-radius: 15px;
 
-    padding: 12px;
+        .game-title {
 
-    box-shadow:
-        0 0 30px rgba(0, 162, 255, 0.07);
-}
+            font-size:
+                clamp(32px, 5vw, 50px);
 
-.image-title {
+            letter-spacing: 2px;
 
-    padding: 8px 8px 12px;
+            margin-bottom: 8px;
+        }
 
-    color: #55d9ff;
 
-    font-size: 12px;
+        .game-description {
 
-    font-weight: bold;
+            color: #91a9b9;
 
-    letter-spacing: 2px;
-}
+            font-size: 14px;
+        }
 
-.canvas-wrapper {
 
-    position: relative;
+        /* =========================
+           INFO
+        ========================= */
 
-    width: 100%;
+        .info-bar {
 
-    overflow: hidden;
+            display: flex;
 
-    border-radius: 10px;
+            justify-content: center;
 
-    background: #02080e;
-}
+            align-items: center;
 
-canvas {
+            gap: 35px;
 
-    display: block;
+            flex-wrap: wrap;
 
-    width: 100%;
+            margin-bottom: 28px;
+        }
 
-    height: auto;
 
-    border-radius: 10px;
+        .info-item {
 
-    cursor: crosshair;
-}
+            color: #c8d8e1;
 
+            font-size: 15px;
+        }
 
-/* =========================
-   CONTROLS
-========================= */
 
-.controls {
+        .info-item strong {
 
-    display: flex;
+            color: white;
+        }
 
-    justify-content: center;
 
-    gap: 15px;
+        .timer {
 
-    margin-top: 25px;
+            color: #62ddff;
 
-    flex-wrap: wrap;
-}
+            text-shadow:
+                0 0 10px
+                rgba(75, 214, 255, 0.5);
+        }
 
-.game-button {
 
-    padding: 13px 25px;
+        /* =========================
+           IMAGES
+        ========================= */
 
-    border-radius: 9px;
+        .images-wrapper {
 
-    font-weight: bold;
+            display: grid;
 
-    font-size: 14px;
+            grid-template-columns:
+                1fr 1fr;
 
-    cursor: pointer;
+            gap: 20px;
+        }
 
-    transition: 0.25s;
-}
 
-.hint-button {
+        .image-panel {
 
-    border: 1px solid rgba(77, 213, 255, 0.4);
+            background:
+                rgba(5, 18, 29, 0.9);
 
-    background:
-        rgba(36, 150, 191, 0.18);
+            border:
+                1px solid
+                rgba(69, 203, 255, 0.22);
 
-    color: #65dcff;
-}
+            border-radius: 15px;
 
-.restart-button {
+            padding: 12px;
 
-    border: 1px solid rgba(255,255,255,0.15);
+            box-shadow:
+                0 0 30px
+                rgba(0, 162, 255, 0.07);
+        }
 
-    background: rgba(255,255,255,0.05);
 
-    color: #b8c8d0;
-}
+        .image-title {
 
+            padding:
+                8px 8px 12px;
 
-/* =========================
-   MESSAGE
-========================= */
+            color: #55d9ff;
 
-#message {
+            font-size: 12px;
 
-    text-align: center;
+            font-weight: bold;
 
-    margin-top: 18px;
+            letter-spacing: 2px;
+        }
 
-    min-height: 24px;
 
-    color: #72ddff;
+        .canvas-wrapper {
 
-    font-weight: bold;
-}
+            position: relative;
 
+            width: 100%;
 
-/* =========================
-   COMPLETE
-========================= */
+            overflow: hidden;
 
-#completeScreen {
+            border-radius: 10px;
 
-    display: none;
+            background: #02080e;
+        }
 
-    position: fixed;
 
-    inset: 0;
+        canvas {
 
-    z-index: 50;
+            display: block;
 
-    justify-content: center;
+            width: 100%;
 
-    align-items: center;
+            height: auto;
 
-    padding: 25px;
+            border-radius: 10px;
 
-    background:
-        rgba(1, 7, 13, 0.92);
+            cursor: crosshair;
+        }
 
-    backdrop-filter: blur(8px);
-}
 
-.complete-card {
+        /* =========================
+           CONTROLS
+        ========================= */
 
-    width: 100%;
+        .controls {
 
-    max-width: 500px;
+            display: flex;
 
-    text-align: center;
+            justify-content: center;
 
-    padding: 45px 30px;
+            gap: 15px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #0c2739,
-            #06121e
-        );
+            margin-top: 25px;
 
-    border: 1px solid rgba(70, 214, 255, 0.4);
+            flex-wrap: wrap;
+        }
 
-    border-radius: 18px;
 
-    box-shadow:
-        0 0 50px rgba(0, 186, 255, 0.15);
-}
+        .game-button {
 
-.complete-icon {
+            padding:
+                13px 25px;
 
-    font-size: 50px;
+            border-radius: 9px;
 
-    margin-bottom: 15px;
-}
+            font-weight: bold;
 
-.complete-card h2 {
+            font-size: 14px;
 
-    font-size: 30px;
+            cursor: pointer;
 
-    margin-bottom: 12px;
-}
+            transition: 0.25s;
+        }
 
-.complete-card p {
 
-    color: #9eb6c5;
+        .hint-button {
 
-    margin-bottom: 25px;
-}
+            border:
+                1px solid
+                rgba(77, 213, 255, 0.4);
 
+            background:
+                rgba(36, 150, 191, 0.18);
 
-/* =========================
-   MOBILE
-========================= */
+            color: #65dcff;
+        }
 
-@media (max-width: 750px) {
 
-    #gameScreen {
-        padding: 25px 12px 40px;
-    }
+        .restart-button {
 
-    .start-card {
-        padding: 40px 25px;
-    }
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
 
-    .images-wrapper {
-        grid-template-columns: 1fr;
-    }
+            background:
+                rgba(255,255,255,0.05);
 
-    .info-bar {
-        gap: 15px;
-    }
+            color: #b8c8d0;
+        }
 
-}
 
-</style>
+        .leaderboard-button {
+
+            border:
+                1px solid
+                rgba(77, 213, 255, 0.4);
+
+            background:
+                rgba(36, 150, 191, 0.18);
+
+            color: #65dcff;
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        #message {
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            min-height: 24px;
+
+            color: #72ddff;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           COMPLETE SCREEN
+        ========================= */
+
+        #completeScreen {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 50;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+
+            background:
+                rgba(1, 7, 13, 0.92);
+
+            backdrop-filter:
+                blur(8px);
+        }
+
+
+        .complete-card {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            text-align: center;
+
+            padding:
+                45px 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0c2739,
+                    #06121e
+                );
+
+            border:
+                1px solid
+                rgba(70, 214, 255, 0.4);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 0 50px
+                rgba(0, 186, 255, 0.15);
+        }
+
+
+        .complete-icon {
+
+            font-size: 50px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .complete-card h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .complete-card p {
+
+            color: #9eb6c5;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           LEADERBOARD
+        ========================= */
+
+        #leaderboardScreen {
+
+            display: none;
+
+            min-height: 100vh;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+        }
+
+
+        .leaderboard-card {
+
+            width: 100%;
+
+            max-width: 700px;
+
+            padding: 40px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(12, 31, 47, 0.96),
+                    rgba(4, 13, 23, 0.96)
+                );
+
+            border:
+                1px solid
+                rgba(70, 207, 255, 0.35);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 0 60px
+                rgba(0, 174, 255, 0.12);
+        }
+
+
+        .leaderboard-card h1 {
+
+            margin:
+                15px 0 30px;
+
+            font-size: 36px;
+
+            color: #f3fbff;
+        }
+
+
+        #leaderboardList {
+
+            width: 100%;
+        }
+
+
+        .leaderboard-row {
+
+            display: grid;
+
+            grid-template-columns:
+                70px 1fr 120px;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 16px;
+
+            margin-bottom: 10px;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border:
+                1px solid
+                rgba(70,207,255,0.12);
+
+            border-radius: 10px;
+
+            text-align: left;
+        }
+
+
+        .leaderboard-rank {
+
+            color: #62ddff;
+
+            font-weight: bold;
+
+            font-size: 18px;
+        }
+
+
+        .leaderboard-name {
+
+            color: white;
+
+            font-weight: bold;
+        }
+
+
+        .leaderboard-time {
+
+            color: #62ddff;
+
+            text-align: right;
+
+            font-weight: bold;
+        }
+
+
+        .empty-leaderboard {
+
+            padding: 30px;
+
+            color: #91a9b9;
+        }
+
+
+        .leaderboard-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            justify-content: center;
+
+            margin-top: 25px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .leaderboard-buttons .start-button {
+
+            width: auto;
+
+            min-width: 180px;
+
+            margin-top: 0;
+        }
+
+
+        .leaderboard-buttons .game-button {
+
+            min-width: 180px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            #gameScreen {
+
+                padding:
+                    25px 12px 40px;
+            }
+
+
+            .start-card {
+
+                padding:
+                    40px 25px;
+            }
+
+
+            .images-wrapper {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .info-bar {
+
+                gap: 15px;
+            }
+
+
+            .leaderboard-card {
+
+                padding:
+                    30px 18px;
+            }
+
+
+            .leaderboard-row {
+
+                grid-template-columns:
+                    50px 1fr 90px;
+
+                padding: 13px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -511,938 +809,1424 @@ canvas {
 <body>
 
 
-<!-- ==========================================
-     START SCREEN
-========================================== -->
+    <!-- ==========================================
+         START SCREEN
+    ========================================== -->
 
-<section id="startScreen">
+    <section id="startScreen">
 
-    <div class="start-card">
+        <div class="start-card">
 
-        <div class="small-title">
-            ✦ SPOT THE DIFFERENCE ✦
-        </div>
+            <div class="small-title">
+                ✦ SPOT THE DIFFERENCE ✦
+            </div>
 
-        <h1 class="main-title">
-            MYSTERY GALLERY
-        </h1>
+            <h1 class="main-title">
+                MYSTERY GALLERY
+            </h1>
 
-        <p class="subtitle">
-            Find all 5 differences as quickly as possible.
-        </p>
-
-        <label class="username-label">
-            Enter your username:
-        </label>
-
-        <input
-            type="text"
-            id="username"
-            placeholder="Enter your name"
-            maxlength="20"
-        >
-
-        <button
-            class="start-button"
-            onclick="startGame()"
-        >
-            START GAME
-        </button>
-
-    </div>
-
-</section>
+            <p class="subtitle">
+                Find all 5 differences as quickly as possible.
+            </p>
 
 
-
-<!-- ==========================================
-     GAME SCREEN
-========================================== -->
-
-<section id="gameScreen">
-
-    <div class="game-header">
-
-        <div class="small-title">
-            ✦ SPOT THE DIFFERENCE ✦
-        </div>
-
-        <h1 class="game-title">
-            MYSTERY GALLERY
-        </h1>
-
-        <p class="game-description">
-            Find all 5 differences as quickly as possible.
-        </p>
-
-    </div>
+            <label class="username-label">
+                Enter your username:
+            </label>
 
 
-    <div class="info-bar">
-
-        <div class="info-item">
-
-            Player:
-
-            <strong id="playerName">
-                Player
-            </strong>
-
-        </div>
-
-
-        <div class="info-item">
-
-            Differences Found:
-
-            <strong id="differenceCount">
-                0 / 5
-            </strong>
-
-        </div>
-
-
-        <div class="info-item">
-
-            ◷
-
-            <strong
-                id="timer"
-                class="timer"
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your name"
+                maxlength="20"
             >
-                00:00
-            </strong>
+
+
+            <button
+                class="start-button"
+                onclick="startGame()"
+            >
+                START GAME
+            </button>
+
+
+            <button
+                class="home-leaderboard-button"
+                onclick="showLeaderboard()"
+            >
+                🏆 VIEW LEADERBOARD
+            </button>
 
         </div>
 
-    </div>
+    </section>
 
 
-    <div class="images-wrapper">
 
+    <!-- ==========================================
+         GAME SCREEN
+    ========================================== -->
 
-        <!-- ORIGINAL -->
+    <section id="gameScreen">
 
-        <div class="image-panel">
+        <div class="game-header">
 
-            <div class="image-title">
-                ORIGINAL
+            <div class="small-title">
+                ✦ SPOT THE DIFFERENCE ✦
             </div>
 
-            <div class="canvas-wrapper">
+            <h1 class="game-title">
+                MYSTERY GALLERY
+            </h1>
 
-                <canvas id="canvas1"></canvas>
+            <p class="game-description">
+                Find all 5 differences as quickly as possible.
+            </p>
+
+        </div>
+
+
+        <div class="info-bar">
+
+            <div class="info-item">
+
+                Player:
+
+                <strong id="playerName">
+                    Player
+                </strong>
+
+            </div>
+
+
+            <div class="info-item">
+
+                Differences Found:
+
+                <strong id="differenceCount">
+                    0 / 5
+                </strong>
+
+            </div>
+
+
+            <div class="info-item">
+
+                ◷
+
+                <strong
+                    id="timer"
+                    class="timer"
+                >
+                    00:00
+                </strong>
 
             </div>
 
         </div>
 
 
-        <!-- MYSTERY -->
+        <div class="images-wrapper">
 
-        <div class="image-panel">
 
-            <div class="image-title">
-                MYSTERY IMAGE
+            <!-- ORIGINAL -->
+
+            <div class="image-panel">
+
+                <div class="image-title">
+                    ORIGINAL
+                </div>
+
+                <div class="canvas-wrapper">
+
+                    <canvas id="canvas1"></canvas>
+
+                </div>
+
             </div>
 
-            <div class="canvas-wrapper">
 
-                <canvas id="canvas2"></canvas>
+
+            <!-- MYSTERY -->
+
+            <div class="image-panel">
+
+                <div class="image-title">
+                    MYSTERY IMAGE
+                </div>
+
+                <div class="canvas-wrapper">
+
+                    <canvas id="canvas2"></canvas>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+
+        <div class="controls">
+
+            <button
+                class="game-button hint-button"
+                onclick="showHint()"
+            >
+                💡 HINT
+            </button>
 
 
-    <div class="controls">
-
-        <button
-            class="game-button hint-button"
-            onclick="showHint()"
-        >
-            💡 HINT
-        </button>
-
-        <button
-            class="game-button restart-button"
-            onclick="restartGame()"
-        >
-            ↻ RESTART
-        </button>
-
-    </div>
+            <button
+                class="game-button leaderboard-button"
+                onclick="showLeaderboard()"
+            >
+                🏆 LEADERBOARD
+            </button>
 
 
-    <div id="message"></div>
+            <button
+                class="game-button restart-button"
+                onclick="restartGame()"
+            >
+                ↻ RESTART
+            </button>
 
-</section>
-
-
-
-<!-- ==========================================
-     COMPLETE SCREEN
-========================================== -->
-
-<section id="completeScreen">
-
-    <div class="complete-card">
-
-        <div class="complete-icon">
-            🎉
         </div>
 
-        <h2>
-            ALL DIFFERENCES FOUND!
-        </h2>
 
-        <p id="finalMessage"></p>
+        <div id="message"></div>
 
-        <button
-            class="start-button"
-            onclick="restartGame()"
-        >
-            PLAY AGAIN
-        </button>
+    </section>
 
-    </div>
 
-</section>
 
+    <!-- ==========================================
+         COMPLETE SCREEN
+    ========================================== -->
 
+    <section id="completeScreen">
 
-<script>
+        <div class="complete-card">
 
+            <div class="complete-icon">
+                🎉
+            </div>
 
-/* ==========================================
-   GAME VARIABLES
-========================================== */
 
-let playerName = "";
+            <h2>
+                ALL DIFFERENCES FOUND!
+            </h2>
 
-let seconds = 0;
 
-let timerInterval = null;
+            <p id="finalMessage"></p>
 
-let foundDifferences = [];
 
-let img1 = new Image();
+            <div class="leaderboard-buttons">
 
-let img2 = new Image();
+                <button
+                    class="start-button"
+                    onclick="showLeaderboard()"
+                >
+                    🏆 LEADERBOARD
+                </button>
 
 
-/*
-IMPORTANT:
+                <button
+                    class="game-button restart-button"
+                    onclick="restartGame()"
+                >
+                    PLAY AGAIN
+                </button>
 
-These coordinates are based on the
-actual images you uploaded.
+            </div>
 
-Image size is approximately:
+        </div>
 
-741 × 1049
-*/
+    </section>
 
 
-const differences = [
 
-    {
-        name: "Coffee Shop Sign",
+    <!-- ==========================================
+         LEADERBOARD SCREEN
+    ========================================== -->
 
-        x: 75,
-        y: 235,
+    <section id="leaderboardScreen">
 
-        width: 135,
-        height: 120
-    },
+        <div class="leaderboard-card">
 
+            <div class="small-title">
+                ✦ MYSTERY GALLERY ✦
+            </div>
 
-    {
-        name: "Tree Fruit",
 
-        x: 105,
-        y: 65,
+            <h1>
+                🏆 LEADERBOARD
+            </h1>
 
-        width: 90,
-        height: 80
-    },
 
+            <div id="leaderboardList">
 
-    {
-        name: "Building Window",
+                Loading...
 
-        x: 665,
-        y: 215,
+            </div>
 
-        width: 75,
-        height: 85
-    },
 
+            <div class="leaderboard-buttons">
 
-    {
-        name: "Bicycle Bell",
+                <button
+                    class="start-button"
+                    onclick="loadLeaderboard()"
+                >
+                    ↻ REFRESH
+                </button>
 
-        x: 190,
-        y: 610,
 
-        width: 80,
-        height: 85
-    },
+                <button
+                    class="game-button restart-button"
+                    onclick="restartGame()"
+                >
+                    PLAY AGAIN
+                </button>
 
+            </div>
 
-    {
-        name: "Taxi Sign",
+        </div>
 
-        x: 635,
-        y: 465,
+    </section>
 
-        width: 105,
-        height: 80
-    }
 
-];
 
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
 
-/* ==========================================
-   START GAME
-========================================== */
+    <script>
 
-function startGame() {
 
-    const username =
-        document
-        .getElementById("username")
-        .value
-        .trim();
+        /* ==========================================
+           GAME VARIABLES
+        ========================================== */
 
+        let playerName = "";
 
-    if (!username) {
+        let seconds = 0;
 
-        alert("Please enter your username.");
+        let timerInterval = null;
 
-        return;
-    }
+        let foundDifferences = [];
 
+        let img1 = new Image();
 
-    playerName = username;
+        let img2 = new Image();
 
 
-    document
-    .getElementById("playerName")
-    .innerText = playerName;
 
+        /* ==========================================
+           DIFFERENCES
+        ========================================== */
 
-    document
-    .getElementById("startScreen")
-    .style.display = "none";
+        const differences = [
 
+            {
+                name: "Coffee Shop Sign",
 
-    document
-    .getElementById("gameScreen")
-    .style.display = "block";
+                x: 75,
 
+                y: 235,
 
-    loadImages();
+                width: 135,
 
-    startTimer();
-
-}
-
-
-/* ==========================================
-   LOAD IMAGES
-========================================== */
-
-function loadImages() {
-
-    img1 = new Image();
-
-    img2 = new Image();
-
-
-    img1.onload = function() {
-
-        drawCanvas(
-            img1,
-            document.getElementById("canvas1")
-        );
-
-    };
-
-
-    img2.onload = function() {
-
-        drawCanvas(
-            img2,
-            document.getElementById("canvas2")
-        );
-
-    };
-
-
-    /*
-    YOUR IMAGE FILES
-    */
-
-    img1.src = "img1.jpeg";
-
-    img2.src = "img2.jpeg";
-
-}
-
-
-/* ==========================================
-   DRAW IMAGE
-========================================== */
-
-function drawCanvas(image, canvas) {
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    /*
-    Use same dimensions for both
-    so coordinates line up.
-    */
-
-    canvas.width = 741;
-
-    canvas.height = 1049;
-
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    ctx.drawImage(
-        image,
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-}
-
-
-/* ==========================================
-   TIMER
-========================================== */
-
-function startTimer() {
-
-    clearInterval(timerInterval);
-
-    seconds = 0;
-
-    updateTimer();
-
-
-    timerInterval =
-        setInterval(
-            function() {
-
-                seconds++;
-
-                updateTimer();
-
+                height: 120
             },
-            1000
-        );
-
-}
 
 
-function updateTimer() {
+            {
+                name: "Tree Fruit",
 
-    const minutes =
-        Math.floor(seconds / 60);
+                x: 105,
 
+                y: 65,
 
-    const secs =
-        seconds % 60;
+                width: 90,
 
-
-    document
-    .getElementById("timer")
-    .innerText =
-
-        String(minutes).padStart(2, "0")
-        +
-        ":"
-        +
-        String(secs).padStart(2, "0");
-
-}
+                height: 80
+            },
 
 
-/* ==========================================
-   CLICK ON MYSTERY IMAGE
-========================================== */
+            {
+                name: "Building Window",
 
-document
-.getElementById("canvas2")
-.addEventListener(
-    "click",
-    function(event) {
+                x: 665,
 
-        const canvas = this;
+                y: 215,
 
-        const rect =
-            canvas.getBoundingClientRect();
+                width: 75,
+
+                height: 85
+            },
 
 
-        /*
-        Convert screen coordinates
-        to original image coordinates.
-        */
+            {
+                name: "Bicycle Bell",
 
-        const x =
-            (event.clientX - rect.left)
-            *
-            (canvas.width / rect.width);
+                x: 190,
 
+                y: 610,
 
-        const y =
-            (event.clientY - rect.top)
-            *
-            (canvas.height / rect.height);
+                width: 80,
+
+                height: 85
+            },
 
 
-        checkDifference(x, y);
+            {
+                name: "Taxi Sign",
 
-    }
-);
+                x: 635,
+
+                y: 465,
+
+                width: 105,
+
+                height: 80
+            }
+
+        ];
 
 
-/* ==========================================
-   CHECK CLICK
-========================================== */
 
-function checkDifference(x, y) {
+        /* ==========================================
+           START GAME
+        ========================================== */
 
-    let found = false;
+        function startGame() {
+
+            const username =
+                document
+                    .getElementById("username")
+                    .value
+                    .trim();
 
 
-    differences.forEach(
-        function(area, index) {
+            if (!username) {
+
+                alert(
+                    "Please enter your username."
+                );
+
+                return;
+            }
+
+
+            playerName = username;
+
+
+            document
+                .getElementById("playerName")
+                .innerText = playerName;
+
+
+            document
+                .getElementById("startScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("leaderboardScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("gameScreen")
+                .style.display = "block";
+
+
+            foundDifferences = [];
+
+            updateCounter();
+
+            loadImages();
+
+            startTimer();
+
+        }
+
+
+
+        /* ==========================================
+           LOAD IMAGES
+        ========================================== */
+
+        function loadImages() {
+
+            img1 = new Image();
+
+            img2 = new Image();
+
+
+            img1.onload = function() {
+
+                drawCanvas(
+                    img1,
+                    document.getElementById("canvas1")
+                );
+
+            };
+
+
+            img2.onload = function() {
+
+                drawCanvas(
+                    img2,
+                    document.getElementById("canvas2")
+                );
+
+            };
+
+
+            img1.src = "img1.jpeg";
+
+            img2.src = "img2.jpeg";
+
+        }
+
+
+
+        /* ==========================================
+           DRAW IMAGE
+        ========================================== */
+
+        function drawCanvas(image, canvas) {
+
+            const ctx =
+                canvas.getContext("2d");
+
+
+            canvas.width = 741;
+
+            canvas.height = 1049;
+
+
+            ctx.clearRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+
+            ctx.drawImage(
+                image,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+        }
+
+
+
+        /* ==========================================
+           TIMER
+        ========================================== */
+
+        function startTimer() {
+
+            clearInterval(timerInterval);
+
+            seconds = 0;
+
+            updateTimer();
+
+
+            timerInterval =
+                setInterval(
+                    function() {
+
+                        seconds++;
+
+                        updateTimer();
+
+                    },
+                    1000
+                );
+
+        }
+
+
+
+        function updateTimer() {
+
+            const minutes =
+                Math.floor(
+                    seconds / 60
+                );
+
+
+            const secs =
+                seconds % 60;
+
+
+            document
+                .getElementById("timer")
+                .innerText =
+
+                String(minutes)
+                    .padStart(2, "0")
+
+                +
+
+                ":"
+
+                +
+
+                String(secs)
+                    .padStart(2, "0");
+
+        }
+
+
+
+        /* ==========================================
+           CLICK ON MYSTERY IMAGE
+        ========================================== */
+
+        document
+            .getElementById("canvas2")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    const canvas = this;
+
+
+                    const rect =
+                        canvas
+                            .getBoundingClientRect();
+
+
+                    const x =
+                        (event.clientX - rect.left)
+                        *
+                        (
+                            canvas.width /
+                            rect.width
+                        );
+
+
+                    const y =
+                        (event.clientY - rect.top)
+                        *
+                        (
+                            canvas.height /
+                            rect.height
+                        );
+
+
+                    checkDifference(x, y);
+
+                }
+            );
+
+
+
+        /* ==========================================
+           CHECK CLICK
+        ========================================== */
+
+        function checkDifference(x, y) {
+
+            let found = false;
+
+
+            differences.forEach(
+                function(area, index) {
+
+
+                    if (
+
+                        x >= area.x &&
+
+                        x <=
+                            area.x +
+                            area.width &&
+
+                        y >= area.y &&
+
+                        y <=
+                            area.y +
+                            area.height
+
+                    ) {
+
+
+                        if (
+                            !foundDifferences
+                                .includes(index)
+                        ) {
+
+                            foundDifferences
+                                .push(index);
+
+
+                            found = true;
+
+
+                            markDifference(area);
+
+
+                            updateCounter();
+
+
+                            document
+                                .getElementById("message")
+                                .innerText =
+
+                                "✓ " +
+                                area.name +
+                                " found!";
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+            if (!found) {
+
+                document
+                    .getElementById("message")
+                    .innerText =
+                    "Try again...";
+
+            }
 
 
             if (
-                x >= area.x &&
-                x <= area.x + area.width &&
-                y >= area.y &&
-                y <= area.y + area.height
+                foundDifferences.length === 5
             ) {
 
+                finishGame();
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           MARK DIFFERENCE
+        ========================================== */
+
+        function markDifference(area) {
+
+            drawCanvas(
+                img1,
+                document.getElementById("canvas1")
+            );
+
+
+            drawCanvas(
+                img2,
+                document.getElementById("canvas2")
+            );
+
+
+            const canvas1 =
+                document
+                    .getElementById("canvas1");
+
+
+            const canvas2 =
+                document
+                    .getElementById("canvas2");
+
+
+            const ctx1 =
+                canvas1.getContext("2d");
+
+
+            const ctx2 =
+                canvas2.getContext("2d");
+
+
+            drawBox(
+                ctx1,
+                area
+            );
+
+
+            drawBox(
+                ctx2,
+                area
+            );
+
+
+            foundDifferences.forEach(
+                function(index) {
+
+                    const foundArea =
+                        differences[index];
+
+
+                    drawBox(
+                        ctx1,
+                        foundArea
+                    );
+
+
+                    drawBox(
+                        ctx2,
+                        foundArea
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* ==========================================
+           DRAW RED CIRCLE
+        ========================================== */
+
+        function drawBox(ctx, area) {
+
+            const centerX =
+                area.x +
+                area.width / 2;
+
+
+            const centerY =
+                area.y +
+                area.height / 2;
+
+
+            const radius =
+                Math.max(
+                    area.width,
+                    area.height
+                ) / 2;
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                centerX,
+                centerY,
+                radius,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.strokeStyle =
+                "#ff4d67";
+
+
+            ctx.lineWidth = 6;
+
+
+            ctx.shadowColor =
+                "#ff4d67";
+
+
+            ctx.shadowBlur = 18;
+
+
+            ctx.stroke();
+
+
+            ctx.shadowBlur = 0;
+
+        }
+
+
+
+        /* ==========================================
+           COUNTER
+        ========================================== */
+
+        function updateCounter() {
+
+            document
+                .getElementById("differenceCount")
+                .innerText =
+
+                foundDifferences.length
+                +
+                " / 5";
+
+        }
+
+
+
+        /* ==========================================
+           HINT
+        ========================================== */
+
+        function showHint() {
+
+            if (
+                foundDifferences.length === 5
+            ) {
+
+                return;
+
+            }
+
+
+            let index = -1;
+
+
+            for (
+                let i = 0;
+                i < differences.length;
+                i++
+            ) {
 
                 if (
-                    !foundDifferences.includes(index)
+                    !foundDifferences
+                        .includes(i)
                 ) {
 
-                    foundDifferences.push(index);
+                    index = i;
 
-                    found = true;
-
-
-                    markDifference(area);
-
-
-                    updateCounter();
-
-
-                    document
-                    .getElementById("message")
-                    .innerText =
-                        "✓ " + area.name + " found!";
+                    break;
 
                 }
 
             }
 
-        }
-    );
+
+            if (index === -1) {
+
+                return;
+
+            }
 
 
-    if (!found) {
-
-        document
-        .getElementById("message")
-        .innerText =
-            "Try again...";
-
-    }
-
-
-    if (
-        foundDifferences.length === 5
-    ) {
-
-        finishGame();
-
-    }
-
-}
-
-
-/* ==========================================
-   MARK DIFFERENCE
-========================================== */
-
-function markDifference(area) {
-
-    /*
-    Mark both images
-    */
-
-    drawCanvas(
-        img1,
-        document.getElementById("canvas1")
-    );
-
-
-    drawCanvas(
-        img2,
-        document.getElementById("canvas2")
-    );
-
-
-    const canvas1 =
-        document.getElementById("canvas1");
-
-
-    const canvas2 =
-        document.getElementById("canvas2");
-
-
-    const ctx1 =
-        canvas1.getContext("2d");
-
-
-    const ctx2 =
-        canvas2.getContext("2d");
-
-
-    drawBox(ctx1, area);
-
-    drawBox(ctx2, area);
-
-
-    /*
-    Redraw all previously found
-    */
-
-    foundDifferences.forEach(
-        function(index) {
-
-            const foundArea =
+            const area =
                 differences[index];
 
-            drawBox(
-                ctx1,
-                foundArea
+
+            const canvas =
+                document
+                    .getElementById("canvas2");
+
+
+            const ctx =
+                canvas.getContext("2d");
+
+
+            ctx.strokeStyle =
+                "#ffe066";
+
+
+            ctx.lineWidth = 7;
+
+
+            ctx.shadowColor =
+                "#ffe066";
+
+
+            ctx.shadowBlur = 25;
+
+
+            ctx.strokeRect(
+                area.x,
+                area.y,
+                area.width,
+                area.height
             );
 
-            drawBox(
-                ctx2,
-                foundArea
-            );
 
-        }
-    );
+            ctx.shadowBlur = 0;
 
-}
 
+            setTimeout(
+                function() {
 
-/* ==========================================
-   DRAW RED CIRCLE
-========================================== */
+                    redrawAll();
 
-function drawBox(ctx, area) {
-
-    const centerX =
-        area.x + area.width / 2;
-
-
-    const centerY =
-        area.y + area.height / 2;
-
-
-    const radius =
-        Math.max(
-            area.width,
-            area.height
-        ) / 2;
-
-
-    ctx.beginPath();
-
-
-    ctx.arc(
-        centerX,
-        centerY,
-        radius,
-        0,
-        Math.PI * 2
-    );
-
-
-    ctx.strokeStyle =
-        "#ff4d67";
-
-
-    ctx.lineWidth = 6;
-
-
-    ctx.shadowColor =
-        "#ff4d67";
-
-
-    ctx.shadowBlur = 18;
-
-
-    ctx.stroke();
-
-
-    ctx.shadowBlur = 0;
-
-}
-
-
-/* ==========================================
-   COUNTER
-========================================== */
-
-function updateCounter() {
-
-    document
-    .getElementById("differenceCount")
-    .innerText =
-
-        foundDifferences.length
-        +
-        " / 5";
-
-}
-
-
-/* ==========================================
-   HINT
-========================================== */
-
-function showHint() {
-
-    if (
-        foundDifferences.length === 5
-    ) {
-        return;
-    }
-
-
-    let index = -1;
-
-
-    for (
-        let i = 0;
-        i < differences.length;
-        i++
-    ) {
-
-        if (
-            !foundDifferences.includes(i)
-        ) {
-
-            index = i;
-
-            break;
-
-        }
-
-    }
-
-
-    if (index === -1) {
-        return;
-    }
-
-
-    const area =
-        differences[index];
-
-
-    const canvas =
-        document.getElementById("canvas2");
-
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    ctx.strokeStyle =
-        "#ffe066";
-
-
-    ctx.lineWidth = 7;
-
-
-    ctx.shadowColor =
-        "#ffe066";
-
-
-    ctx.shadowBlur = 25;
-
-
-    ctx.strokeRect(
-        area.x,
-        area.y,
-        area.width,
-        area.height
-    );
-
-
-    ctx.shadowBlur = 0;
-
-
-    setTimeout(
-        function() {
-
-            redrawAll();
-
-        },
-        1800
-    );
-
-}
-
-
-/* ==========================================
-   REDRAW
-========================================== */
-
-function redrawAll() {
-
-    drawCanvas(
-        img1,
-        document.getElementById("canvas1")
-    );
-
-
-    drawCanvas(
-        img2,
-        document.getElementById("canvas2")
-    );
-
-
-    const ctx1 =
-        document
-        .getElementById("canvas1")
-        .getContext("2d");
-
-
-    const ctx2 =
-        document
-        .getElementById("canvas2")
-        .getContext("2d");
-
-
-    foundDifferences.forEach(
-        function(index) {
-
-            drawBox(
-                ctx1,
-                differences[index]
-            );
-
-            drawBox(
-                ctx2,
-                differences[index]
+                },
+                1800
             );
 
         }
-    );
-
-}
 
 
-/* ==========================================
-   FINISH GAME
-========================================== */
 
-function finishGame() {
+        /* ==========================================
+           REDRAW
+        ========================================== */
 
-    clearInterval(timerInterval);
+        function redrawAll() {
 
-
-    document
-    .getElementById("finalMessage")
-    .innerText =
-
-        "Amazing, "
-        +
-        playerName
-        +
-        "! You found all 5 differences in "
-        +
-        document
-        .getElementById("timer")
-        .innerText
-        +
-        ".";
+            drawCanvas(
+                img1,
+                document.getElementById("canvas1")
+            );
 
 
-    document
-    .getElementById("completeScreen")
-    .style.display = "flex";
-
-}
-
-
-/* ==========================================
-   RESTART
-========================================== */
-
-function restartGame() {
-
-    clearInterval(timerInterval);
+            drawCanvas(
+                img2,
+                document.getElementById("canvas2")
+            );
 
 
-    foundDifferences = [];
+            const ctx1 =
+                document
+                    .getElementById("canvas1")
+                    .getContext("2d");
 
 
-    document
-    .getElementById("differenceCount")
-    .innerText = "0 / 5";
+            const ctx2 =
+                document
+                    .getElementById("canvas2")
+                    .getContext("2d");
 
 
-    document
-    .getElementById("message")
-    .innerText = "";
+            foundDifferences.forEach(
+                function(index) {
+
+                    drawBox(
+                        ctx1,
+                        differences[index]
+                    );
 
 
-    document
-    .getElementById("completeScreen")
-    .style.display = "none";
+                    drawBox(
+                        ctx2,
+                        differences[index]
+                    );
+
+                }
+            );
+
+        }
 
 
-    document
-    .getElementById("gameScreen")
-    .style.display = "none";
+
+        /* ==========================================
+           FINISH GAME
+        ========================================== */
+
+        async function finishGame() {
+
+            clearInterval(
+                timerInterval
+            );
 
 
-    document
-    .getElementById("startScreen")
-    .style.display = "flex";
+            const finalTime =
+                document
+                    .getElementById("timer")
+                    .innerText;
 
-}
 
-</script>
+            document
+                .getElementById("finalMessage")
+                .innerText =
 
+                "Amazing, " +
+                playerName +
+                "! You found all 5 differences in " +
+                finalTime +
+                ".";
+
+
+            /*
+                SEND SCORE TO FLASK
+            */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "http://https://level-4-backend.onrender.com/api/scores",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    username:
+                                        playerName,
+
+                                    score: 5,
+
+                                    completion_time:
+                                        seconds
+
+                                })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                console.log(
+                    "Score saved:",
+                    data
+                );
+
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Could not save score:",
+                    error
+                );
+
+            }
+
+
+            document
+                .getElementById("completeScreen")
+                .style.display = "flex";
+
+        }
+
+
+
+        /* ==========================================
+           SHOW LEADERBOARD
+        ========================================== */
+
+        async function showLeaderboard() {
+
+            clearInterval(
+                timerInterval
+            );
+
+
+            document
+                .getElementById("startScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("gameScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("completeScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("leaderboardScreen")
+                .style.display = "flex";
+
+
+            await loadLeaderboard();
+
+        }
+
+
+
+        /* ==========================================
+           LOAD LEADERBOARD
+        ========================================== */
+
+        async function loadLeaderboard() {
+
+            const leaderboardList =
+                document
+                    .getElementById(
+                        "leaderboardList"
+                    );
+
+
+            leaderboardList.innerHTML =
+                `
+                <div class="empty-leaderboard">
+                    Loading leaderboard...
+                </div>
+                `;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "http://https://level-4-backend.onrender.com/api/leaderboard"
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!data.success) {
+
+                    leaderboardList.innerHTML =
+                        `
+                        <div class="empty-leaderboard">
+                            Could not load leaderboard.
+                        </div>
+                        `;
+
+                    return;
+
+                }
+
+
+                if (
+                    data.leaderboard.length === 0
+                ) {
+
+                    leaderboardList.innerHTML =
+                        `
+                        <div class="empty-leaderboard">
+                            No scores yet.<br>
+                            Be the first player!
+                        </div>
+                        `;
+
+                    return;
+
+                }
+
+
+                leaderboardList.innerHTML =
+                    "";
+
+
+                data.leaderboard
+                    .slice(0, 10)
+                    .forEach(
+                        function(
+                            player,
+                            index
+                        ) {
+
+
+                            const minutes =
+                                Math.floor(
+                                    player.completion_time /
+                                    60
+                                );
+
+
+                            const playerSeconds =
+                                player.completion_time %
+                                60;
+
+
+                            const formattedTime =
+
+                                String(minutes)
+                                    .padStart(
+                                        2,
+                                        "0"
+                                    )
+
+                                +
+
+                                ":"
+
+                                +
+
+                                String(
+                                    playerSeconds
+                                )
+                                    .padStart(
+                                        2,
+                                        "0"
+                                    );
+
+
+                            const row =
+                                document
+                                    .createElement(
+                                        "div"
+                                    );
+
+
+                            row.className =
+                                "leaderboard-row";
+
+
+                            const rank =
+                                document
+                                    .createElement(
+                                        "div"
+                                    );
+
+                            rank.className =
+                                "leaderboard-rank";
+
+                            rank.innerText =
+                                "#" +
+                                (index + 1);
+
+
+                            const name =
+                                document
+                                    .createElement(
+                                        "div"
+                                    );
+
+                            name.className =
+                                "leaderboard-name";
+
+                            name.innerText =
+                                player.username;
+
+
+                            const time =
+                                document
+                                    .createElement(
+                                        "div"
+                                    );
+
+                            time.className =
+                                "leaderboard-time";
+
+                            time.innerText =
+                                formattedTime;
+
+
+                            row.appendChild(
+                                rank
+                            );
+
+
+                            row.appendChild(
+                                name
+                            );
+
+
+                            row.appendChild(
+                                time
+                            );
+
+
+                            leaderboardList
+                                .appendChild(
+                                    row
+                                );
+
+                        }
+                    );
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Leaderboard error:",
+                    error
+                );
+
+
+                leaderboardList.innerHTML =
+                    `
+                    <div class="empty-leaderboard">
+
+                        ❌ Backend is not running.
+
+                        <br><br>
+
+                        Start Flask using:
+
+                        <br>
+
+                        <strong>
+                            python app.py
+                        </strong>
+
+                    </div>
+                    `;
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           RESTART
+        ========================================== */
+
+        function restartGame() {
+
+            clearInterval(
+                timerInterval
+            );
+
+
+            foundDifferences = [];
+
+
+            seconds = 0;
+
+
+            document
+                .getElementById("differenceCount")
+                .innerText = "0 / 5";
+
+
+            document
+                .getElementById("timer")
+                .innerText = "00:00";
+
+
+            document
+                .getElementById("message")
+                .innerText = "";
+
+
+            document
+                .getElementById("completeScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("leaderboardScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("gameScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("startScreen")
+                .style.display = "flex";
+
+
+            document
+                .getElementById("username")
+                .value = "";
+
+        }
+
+
+    </script>
 
 </body>
 
