@@ -751,6 +751,30 @@
         }
 
 
+
+        /* AUDIO BUTTON */
+        .audio-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(77, 213, 255, 0.45);
+            background: rgba(5, 20, 32, 0.9);
+            color: #65dcff;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 18px rgba(65, 213, 255, 0.15);
+            transition: 0.2s;
+        }
+
+        .audio-button:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(65, 213, 255, 0.35);
+        }
+
         /* =========================
            MOBILE
         ========================= */
@@ -807,6 +831,14 @@
 
 
 <body>
+
+    <button
+        id="audioButton"
+        class="audio-button"
+        onclick="toggleAudio()"
+        title="Mute / Unmute"
+    >🔊</button>
+
 
 
     <!-- ==========================================
@@ -1114,6 +1146,24 @@
 
         let img2 = new Image();
 
+        // =========================
+        // AUDIO
+        // =========================
+
+        const backgroundMusic = new Audio("audio/background.mp3");
+        const correctSound = new Audio("audio/correct.wav");
+        const wrongSound = new Audio("audio/wrong.wav");
+        const winSound = new Audio("audio/win.wav");
+
+        backgroundMusic.loop = true;
+        backgroundMusic.volume = 0.25;
+
+        correctSound.volume = 0.45;
+        wrongSound.volume = 0.30;
+        winSound.volume = 0.50;
+
+        let audioMuted = false;
+
 
 
         /* ==========================================
@@ -1215,6 +1265,13 @@
 
             playerName = username;
 
+            if (!audioMuted) {
+                backgroundMusic.currentTime = 0;
+                backgroundMusic.play().catch(function(error) {
+                    console.log("Background music could not start:", error);
+                });
+            }
+
 
             document
                 .getElementById("playerName")
@@ -1279,9 +1336,9 @@
             };
 
 
-            img1.src = "img1.jpg";
+            img1.src = "img1.png";
 
-            img2.src = "img2.jpg";
+            img2.src = "img2.png";
 
         }
 
@@ -1470,6 +1527,9 @@
 
                             markDifference(area);
 
+                            correctSound.currentTime = 0;
+                            correctSound.play().catch(function() {});
+
 
                             updateCounter();
 
@@ -1491,6 +1551,9 @@
 
 
             if (!found) {
+
+                wrongSound.currentTime = 0;
+                wrongSound.play().catch(function() {});
 
                 document
                     .getElementById("message")
@@ -1818,6 +1881,12 @@
                 timerInterval
             );
 
+            backgroundMusic.pause();
+            backgroundMusic.currentTime = 0;
+
+            winSound.currentTime = 0;
+            winSound.play().catch(function() {});
+
 
             const finalTime =
                 document
@@ -1911,6 +1980,8 @@
             clearInterval(
                 timerInterval
             );
+
+            backgroundMusic.pause();
 
 
             document
@@ -2161,6 +2232,46 @@
 
 
 
+
+        // =========================
+        // AUDIO TOGGLE
+        // =========================
+
+        function toggleAudio() {
+
+            const button = document.getElementById("audioButton");
+
+            if (audioMuted) {
+
+                audioMuted = false;
+
+                backgroundMusic.muted = false;
+                correctSound.muted = false;
+                wrongSound.muted = false;
+                winSound.muted = false;
+
+                button.innerText = "🔊";
+
+                if (
+                    document.getElementById("gameScreen").style.display === "block"
+                ) {
+                    backgroundMusic.play().catch(function() {});
+                }
+
+            } else {
+
+                audioMuted = true;
+
+                backgroundMusic.muted = true;
+                correctSound.muted = true;
+                wrongSound.muted = true;
+                winSound.muted = true;
+
+                button.innerText = "🔇";
+            }
+        }
+
+
         /* ==========================================
            RESTART
         ========================================== */
@@ -2170,6 +2281,9 @@
             clearInterval(
                 timerInterval
             );
+
+            backgroundMusic.pause();
+            backgroundMusic.currentTime = 0;
 
 
             foundDifferences = [];
